@@ -1,0 +1,55 @@
+/* GREY */
+
+body { background: #cccccc url(../images/bg-grey.png) repeat; }
+
+#outline { border: 1px solid #333333; }
+
+#wrapper { background: #fff url(../images/border1.gif) repeat-x 0 260px; border: 15px solid #fff; }
+
+#header { background-color: #faef9e; 
+	background: url(../images/banner-grey.png) no-repeat; 
+	border-bottom: 5px solid #fff;
+	color: #fff; 
+}
+
+#headerBox { border: 1px solid #333333; color: #000; height: 80px;}
+
+#navTop { background: #333333 url(../images/trans1.png) repeat-x 0 0; border-bottom: 5px solid #fff; }
+#navTop a:hover { background-color: #1a1a1a; color: #fff; }
+#navTop #current a { background-color: #e6e6e6; color: #000; }
+#navTop li ul { border: 1px solid #333333; background: #e6e6e6;}
+#navTop li ul li a { color: #000; }
+
+#footer { background: #fff url(../images/border2.gif) repeat-x 0 0; border-top: 1px solid #333333; }
+
+#sidebar ul { border-top: 1px solid #333333; }
+#sidebar li a:hover { color: #000; background: #e6e6e6; }
+#sidebar li a { color: #00488F; border-bottom: 1px solid #333333; }
+
+a {	color: #333333; }
+
+.border {
+	background-color: #e6e6e6;
+	border-top: 2px solid #333333;
+	border-bottom: 2px solid #333333;
+}
+
+img.left { border: 1px solid #333333; }
+img.right {	border: 1px solid #333333; }
+img.center { border: 1px solid #333333; }
+img:hover { border: 1px dashed #333333; }
+
+img  {
+	-webkit-box-shadow: 2px 2px 5px #333333;
+	-moz-box-shadow: 2px 2px 5px #333333;
+	box-shadow: 2px 2px 5px #333333;
+}
+
+input, textarea { border: 1px solid #333333;  }
+input:focus, textarea:focus { background-color: #e6e6e6; border: 1px dashed #333333; }
+
+.submit { 
+	background: #333333 url(../images/trans2.png) repeat-x 0 0;
+	border: 1px solid #333333;
+	color: #fff;
+}

@@ -1,0 +1,7 @@
+﻿#ticker {
+	height: 100%;
+	overflow: hidden ;
+}
+#ticker li {
+	height: 200px;
+}
