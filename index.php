@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/grey.css" />
     <link href="css/capstone.css" rel="stylesheet" type="text/css" />
-    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript" language="javascript"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript" language="javascript"></script>
     <script type="text/javascript" language="javascript">
         $(document).ready(function () {
             var divs = $('.definition').hide(), i = 0;
@@ -39,10 +39,10 @@
                 <!-- START NAVIGATION TOP -->
                 <div id="navTop">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="#">Homework</a>
                             <ul>
-                                <li><a href="#">Homework 1 here (soon)</a></li>
+                                <li><a href="survey.php">Homework 1 - Survey</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -50,17 +50,23 @@
                 <!-- END NAVIGATION TOP -->
                 <!-- START RIGHT COLUMN -->
                 <div id="leftColumn-layout1">
-                    <h2>Ahh!! CS313, finally!</h2>
-    <p>
-        <strong>I've been looking forward to this day!</strong>
-        <br />
-        I suppose that this is where the content goes! Not sure what to post yet, but here is a picture of one of my favorite video games characters: <br />
-        <div style="text-align: center">
-            <a href="http://upload.wikimedia.org/wikipedia/en/archive/c/c4/20130621181628!Sephiroth.png" target="_blank
-            "><img src='http://upload.wikimedia.org/wikipedia/en/archive/c/c4/20130621181628!Sephiroth.png' title="Sephiroth" alt="Sephiroth" style="cursor:pointer"/></a>
-        </div>
-
-            <br />
+                    <h2>Homework 1 - Survey using the File System</h2>
+                    <strong>Data Storage without a database.</strong>
+                    <p>
+                        Our first real assignment of the semester is to build a survey system using the filesystem. Here are the requirements:
+                        <ul>
+                            <li>Your survey/results should look professional</li>
+                            <li>There should be at least 4 questions</li>
+                            <li>Provide a link on the question page to go directly to the results (without voting)</li>
+                            <li>When the user casts their vote, they should then see the results</li>
+                            <li>Store the results on the filesystem, so they can be retrieved / added to later</li>
+                            <li>If the user returns to the question page after they have voted, they should be automatically directed to the results. (think sessions)</li>
+                            <li>Create a link to your survey from your assignments page</li>
+                        </ul>
+                        Click <a href="survey.php">here</a> to go to the survey.
+                    </p>
+                    <br />
+                    <br />
                 </div>
                 <!-- END LEFT COLUMN -->
                 <!-- START RIGHT COLUMN -->
@@ -68,11 +74,10 @@
                     <h2>Homework</h2>
                     <div id="sidebar">
                         <ul>
-                            <li><a href="#">Homework 1 (coming soon)</a></li>
+                            <li><a href="survey.php">Homework 1 - Survey</a></li>
                         </ul>
                     </div>
-                    <div>
-                        
+                    <!--<div>
                         <div class="definition" style="display: none;">
                         <h3>
                         Generic Title</h3>
@@ -84,7 +89,7 @@
                         <p>Im serious!</p>
                         </div>
                             
-                    </div>
+                    </div>-->
                 </div>
                 <!-- END RIGHT COLUMN -->
                 <!-- START FOOTER -->
