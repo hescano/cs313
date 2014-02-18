@@ -34,5 +34,17 @@
             return new User($row["UserID"], $row["UserName"], $row["Email"], $row["Password"], $row["FullName"], $row["LastUpdated"], $row["RoleID"], $row["Status"]);
          }
       }
+
+      public static function getUserByUsername($userName)
+      {
+         $result = queryTable("SELECT * FROM Users WHERE UserName='$userName' OR Email='$userName'");
+
+         if ($result->num_rows > 0)
+         {
+            $row = $result->fetch_assoc();
+            return new User($row["UserID"], $row["UserName"], $row["Email"], $row["Password"], $row["FullName"], $row["LastUpdated"], $row["RoleID"], $row["Status"]);
+         }
+      }
+
    }
 ?>

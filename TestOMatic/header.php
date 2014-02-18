@@ -1,3 +1,16 @@
+<?php
+  require_once("alerts.php");
+  session_start();
+
+  function checkAccess()
+  {
+    //redirects to home page if access denied
+    if (!isset($_SESSION["LoggedUser"]))
+    {
+      header("Location: index.php");
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -57,9 +70,8 @@
 
                 require_once("User.php");
 
-                $usr = User::getUserById(2);
-                $_SESSION["LoggedUser"] = $usr;
-
+                /*$usr = User::getUserById(2);
+                $_SESSION["LoggedUser"] = $usr;*/
                 if (isset($_SESSION["LoggedUser"]))
                 {
               ?>
@@ -83,11 +95,11 @@
                       </li>
                       <li><a href="#"><i class="glyphicon glyphicon-share"></i>&nbsp;Tests Shared With Me</a></li>
                       <li class="divider"></li>
-                      <li><a href="#"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;Create New Test</a></li>
+                      <li><a href="CreateTest.php"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;Create New Test</a></li>
                       <li class="divider"></li>
                       <li><a href="#"><i class="glyphicon glyphicon-cog"></i>&nbsp;Account Settings</a></li>
                       <li class="divider"></li>
-                      <li><a href="#"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Log Out</a></li>
+                      <li><a href='logout.php?previous=<?php echo $_SERVER["REQUEST_URI"]; ?>'><i class="glyphicon glyphicon-log-out"></i>&nbsp;Log Out</a></li>
                     </ul>
                   </li>
                   <!-- End account menu -->
@@ -107,3 +119,10 @@
         </div>
       </div>
       <!-- Static navbar End -->
+
+      <?php 
+        if (isset($_SESSION["alert"]))
+        {
+          showAlert();
+        }
+      ?>
