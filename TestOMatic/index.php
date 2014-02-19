@@ -2,11 +2,12 @@
   include_once("header.php");
   include_once("Update.php");
 ?>
-    <div class="jumbotron">
-      <h1>Welcome</h1>
-      <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+    <div class="jumbotron" style="background:url(http://www.pitonik.com/Sayfalar/Moduller/Resimler/fotograflar/b45da986caf39e0451604dedd2d53bcc521.jpg)">
+      <h1>TestO'Matic</h1>
+      <p>If you are in the process of learning new material at school, or studying really hard for that latest Microsoft Certification,
+        then you migh find that creating practice tests is one way to memorize, and become better at anything. </p>
       <p>
-      <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+      <a class="btn btn-lg btn-primary" href="tour.php" role="button">Take the Tour &raquo;</a>
       </p>
     </div>
     

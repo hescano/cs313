@@ -20,9 +20,36 @@
          $this->Status = $pStatus;
       }
 
+      public static function getByTestID($testID)
+      {
+         $result = queryTable("SELECT * FROM Tests WHERE TestID=$testID");
+         if ($result->num_rows > 0)
+         {
+            $row = $result->fetch_assoc();
+            return new Test($row["TestID"], $row["TestName"], $row["UserID"], $row["IsPublic"], $row["LastUpdated"], $row["Status"]);
+         }
+      }
+
+      public static function getByUserID($userID)
+      {
+         $result = queryTable("SELECT * FROM Tests WHERE UserID=$userID AND Status=1");
+
+         if ($result->num_rows > 0)
+         {
+            $tests = array();
+
+            while ($row = $result->fetch_assoc())
+            {
+               array_push($tests, new Test($row["TestID"], $row["TestName"], $row["UserID"], $row["IsPublic"], $row["LastUpdated"], $row["Status"]));
+            }
+            return $tests;
+         }
+      }
+
       public static function Insert($pTestName = "", $pUserID = 0, $pIsPublic = false, $pStatus = false)
       {
-         $query = "INSERT INTO Tests (TestName, UserID, IsPublic, Status) VALUES('$pTestName', $pUserID, $pIsPublic, $pStatus)";
+         $date = date('Y-m-d H:i:s');
+         $query = "INSERT INTO Tests (TestName, UserID, IsPublic, LastUpdated, Status) VALUES('$pTestName', $pUserID, $pIsPublic, '$date', $pStatus)";
          $tmpTestId = insertTable($query);
 
          $result = queryTable("SELECT * FROM Tests WHERE TestID=$tmpTestId");

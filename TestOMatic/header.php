@@ -1,5 +1,8 @@
 <?php
   require_once("alerts.php");
+  require_once("User.php");
+  require_once("Test.php");
+
   session_start();
 
   function checkAccess()
@@ -10,6 +13,12 @@
       header("Location: index.php");
     }
   }
+
+  function redirect($path = "index.php", $time = "0")
+  {
+    echo '<META HTTP-EQUIV="Refresh" Content="'.$time.'; URL='.$path.'">';
+  }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +77,7 @@
             <ul class="nav navbar-nav navbar-right">
               <?php 
 
-                require_once("User.php");
+                
 
                 /*$usr = User::getUserById(2);
                 $_SESSION["LoggedUser"] = $usr;*/
@@ -79,20 +88,6 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                      <li class="dropdown-submenu"><a href="#"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;View My Tests</a>
-                        <ul class="dropdown-menu">
-                          <li><a tabindex="-1" href="#">Second level</a></li>
-                          <li class="dropdown-submenu">
-                            <a href="#">More..</a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">3rd level</a></li>
-                              <li><a href="#">3rd level</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="#">Second level</a></li>
-                          <li><a href="#">Second level</a></li>
-                        </ul>
-                      </li>
                       <li><a href="#"><i class="glyphicon glyphicon-share"></i>&nbsp;Tests Shared With Me</a></li>
                       <li class="divider"></li>
                       <li><a href="CreateTest.php"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;Create New Test</a></li>
@@ -100,6 +95,22 @@
                       <li><a href="#"><i class="glyphicon glyphicon-cog"></i>&nbsp;Account Settings</a></li>
                       <li class="divider"></li>
                       <li><a href='logout.php?previous=<?php echo $_SERVER["REQUEST_URI"]; ?>'><i class="glyphicon glyphicon-log-out"></i>&nbsp;Log Out</a></li>
+                      <?php
+                        $myTests = Test::getByUserID($_SESSION["LoggedUser"]->UserID);
+
+                        if (count($myTests))
+                        {
+                          echo "<li class='dropdown-submenu'><a href='#'><i class='glyphicon glyphicon-eye-open'></i>&nbsp;View My Tests</a>";
+                          echo "<ul class='dropdown-menu'>";
+
+                        foreach($myTests as $test)
+                        {
+                          echo "<li><a href='Tests.php?testid=$test->TestID'>$test->TestName</a></li>";
+                        }
+                          echo "</ul>";
+                          echo "</li>";
+                        }
+                      ?>
                     </ul>
                   </li>
                   <!-- End account menu -->
