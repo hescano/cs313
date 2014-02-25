@@ -35,5 +35,27 @@
             return $answers;
          }
       }
+      
+      public static function Insert($pQuestionID = 0, $pAnswerValue = "", $pIsAnswer = 0, $pActualAnswer = "", $pStatus = 0)
+      {
+         $query = "INSERT INTO Answers (QuestionID, AnswerValue, IsAnswer, ActualAnswer, Status) VALUES($pQuestionID, '$pAnswerValue', $pIsAnswer, '$pActualAnswer', $pStatus)";
+         
+         $tmpAnswerID = insertTable($query);
+
+         $result = queryTable("SELECT * FROM Answers WHERE AnswerID=$tmpAnswerID");
+
+         if ($result->num_rows > 0)
+         {
+            $row = $result->fetch_assoc();
+            return new Answer($row["AnswerID"], $row["QuestionID"], $row["AnswerValue"], $row["IsAnswer"], $row["ActualAnswer"], $row["Status"]);
+         }
+
+
+      }
+      
+      public static function deleteAllByQuestionID($questionID)
+      {
+         $result = execute("DELETE FROM Answers WHERE QuestionID=$questionID");
+      }
    }
 ?>

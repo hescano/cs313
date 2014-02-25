@@ -15,4 +15,11 @@
 
       return $mysqli->insert_id;
    }
+   
+   function execute($query)
+   {
+      include("config.php");
+      $mysqli = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
+      $mysqli->query($query);
+   }
 ?>

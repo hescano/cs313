@@ -26,7 +26,7 @@
          else
          {
             Alert::setAlert("<strong>Test created successfully!</strong><br />Now you can add <strong>Questions</strong> to this test. First click the <strong><i>New Question</i></strong> button to get started! ", "success");
-            header("Location: AddQuestions.php?testid=$tmpTest->TestID");  
+            redirect("AddQuestions.php?testid=$tmpTest->TestID");
          }
       }
    }
@@ -40,7 +40,7 @@
             <div class="form-group">
                <label for="inputEmail3" class="col-sm-2 control-label">Test Name</label>
                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="txtTestName" name="txtTestName" placeholder="Name of the test">
+                  <input type="text" class="form-control" id="txtTestName" name="txtTestName" placeholder="Name of the test (5+ characters long)">
                </div>
             </div>
             <div class="form-group">
@@ -63,3 +63,17 @@
 <?php 
   include_once("footer.php");
 ?>
+<script type="text/javascript">
+   $(function(){
+      $(".form-horizontal button[type='submit']").on("click", function(){
+         $elem = $("#txtTestName");
+         if ($elem.val().length < 5)
+         {
+            showAlert("The test name cannot be less than 5 characters long.", "danger");
+            $elem.focus();
+            return false;
+         }
+         return true;
+      });
+   });
+</script>

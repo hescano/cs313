@@ -66,7 +66,7 @@
       //if we get to here after a post, it means we inserted all questions successfully.
       //now we add answers for this test and its questions.
       Alert::setAlert("<strong>Questions added successfully!</strong> You are almost done! Last step, add some answers to your questions.", "success");
-      header("Location: AddAnswers.php?testid=$testId");
+      redirect("AddAnswers.php?testid=$testId");
 
    }
 ?>

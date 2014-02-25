@@ -30,6 +30,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="/ico/favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/TestOMatic.css">
+    <link rel="stylesheet" type="text/css" href="http://bootstrap-growl.remabledesigns.com/css/bootstrap-growl.css">
     <title>Welcome to TestO'Matic</title>
 
 
@@ -44,6 +45,17 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+      function showAlert(message, type)
+      {
+         var a = "<div class='alert alert-" + type + " alert-dismissable'>";
+         a += "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>";
+         a += message + "</div>";
+         $(".show-alert").append(a);
+         hideAlert();
+      }
+
+    </script>
   </head>
 
   <body>
@@ -130,7 +142,8 @@
         </div>
       </div>
       <!-- Static navbar End -->
-
+      <div class="show-alert">
+      </div>
       <?php 
         if (isset($_SESSION["alert"]))
         {

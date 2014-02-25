@@ -10,15 +10,18 @@
    <script type="text/javascript">
       $(function()
       {
-
-         if($(".alert").length > 0)
-         {
-            setTimeout(function()
-            {
-               $(".alert").slideUp("slow");
-            }, 10000);
-         }
+         hideAlert();
       });
+      function hideAlert()
+         {
+            if($(".alert").length > 0)
+            {
+               setTimeout(function()
+               {
+                  $(".alert").slideUp("slow");
+               }, 10000);
+            }
+         }
    </script>
    </body>
 </html>

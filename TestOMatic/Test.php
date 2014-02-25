@@ -48,6 +48,7 @@
 
       public static function Insert($pTestName = "", $pUserID = 0, $pIsPublic = false, $pStatus = false)
       {
+         date_default_timezone_set('GMT');
          $date = date('Y-m-d H:i:s');
          $query = "INSERT INTO Tests (TestName, UserID, IsPublic, LastUpdated, Status) VALUES('$pTestName', $pUserID, $pIsPublic, '$date', $pStatus)";
          $tmpTestId = insertTable($query);
