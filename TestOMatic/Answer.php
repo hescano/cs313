@@ -35,6 +35,23 @@
             return $answers;
          }
       }
+ 
+      public static function getAnswersByTestId($testId)
+      {
+         $result = queryTable("SELECT * FROM Answers a JOIN Questions q ON a.QuestionID = q.QuestionID JOIN Tests t ON q.TestID = t.TestID WHERE a.Status=1 AND t.Status = 1 AND q.Status = 1 AND t.TestID=$testId");
+
+         if ($result->num_rows > 0)
+         {
+            $answers = array();
+
+            while ($row = $result->fetch_assoc())
+            {
+               array_push($answers, new Answer($row["AnswerID"], $row["QuestionID"], $row["AnswerValue"], $row["IsAnswer"], $row["ActualAnswer"], $row["Status"]));
+            }
+            return $answers;
+         }
+      }
+      
       
       public static function Insert($pQuestionID = 0, $pAnswerValue = "", $pIsAnswer = 0, $pActualAnswer = "", $pStatus = 0)
       {

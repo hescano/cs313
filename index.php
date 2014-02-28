@@ -43,6 +43,7 @@
                         <li><a href="#">Homework</a>
                             <ul>
                                 <li><a href="survey.php">Homework 1 - Survey</a></li>
+                                <li><a href="/TestOMatic">Homework 2 - TestO'Matic</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -75,6 +76,7 @@
                     <div id="sidebar">
                         <ul>
                             <li><a href="survey.php">Homework 1 - Survey</a></li>
+                            <li><a href="survey.php">Homework 2 - TestO'Matic</a></li>
                         </ul>
                     </div>
                     <!--<div>
